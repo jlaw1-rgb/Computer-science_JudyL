@@ -22,8 +22,8 @@ public class Door {
     // public WhatComesOut nameOfFunction(input) {
 
     public void numberOfLocks() {
-        numberOfLocks = 0
-        System.out.println(numberOfLocks);
+        numberOfLocks = 0;
+        System.out.println("Number of Locks: " + numberOfLocks);
     }
 
     public void canBeLocked() {
@@ -39,6 +39,6 @@ public class Door {
     }
 
     public void name() {
-        name = "Miao"
+        name = "Miao";
     }
 }
