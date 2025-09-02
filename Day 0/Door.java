@@ -27,7 +27,8 @@ public class Door {
     }
 
     public void canBeLocked() {
-        canBeLocked = false;
+        if (canBeLocked = true);
+            System.out.println("The door can be locked. ");
     }
 
     public void shape() {
@@ -39,6 +40,6 @@ public class Door {
     }
 
     public void name() {
-        name = "Miao";
+        name = 'A';
     }
 }
