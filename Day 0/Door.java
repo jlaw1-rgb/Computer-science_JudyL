@@ -19,6 +19,16 @@ public class Door {
         name = 'D';
     }
 
+    public boolean equals(Door backdoor) {
+        if (
+            this.numberOfLocks == backdoor.numberOfLocks
+        ){
+            return true;
+        }
+        return false;
+    }
+
+    
     // public WhatComesOut nameOfFunction(input) {
 
     public void numberOfLocks() {
@@ -41,5 +51,12 @@ public class Door {
 
     public void name() {
         name = 'A';
+    }
+
+    public String toString() {
+        return "This door has " +
+        numberOfLocks + " number of locks" +
+        ", shape of a " + shape +
+        ", and height of " + height;
     }
 }
