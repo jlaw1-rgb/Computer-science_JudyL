@@ -3,7 +3,7 @@ public class Rectangle {
     private int width;
 
     // defines the instance variables with the local parameters
-    public Rectangle(int desiredLength, int desiredWidth){
+    public Rectangle(int desiredLength, int desiredWidth) {
         length = desiredLength;
         width = desiredWidth;
     }
@@ -18,21 +18,27 @@ public class Rectangle {
     }    
 
     // setters
-    public void setLength(int newLength){
+    public void setLength(int newLength) {
         length = newLength;
     }
 
     // methods
-    public int calculateArea() {
+    public int getArea() {
         int area = length * width;
         return area;
     }
     
-    public int calculatePerimeter() {
+    public int getPerimeter() {
         int perimeter = length + length + width + width;
         return perimeter;
     }
 
-
+    public double getDiagonal() {
+        double diagonal = Math.sqrt(Math.pow(length, 2) + Math.pow(width, 2));
+        return diagonal;
     }
 
+    public void setWidth(int width) {
+        this.width = width;
+    }
+}

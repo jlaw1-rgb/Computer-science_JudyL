@@ -28,7 +28,14 @@ public class Door {
         return false;
     }
 
-    
+    public boolean getCanBeLocked() {
+        return this.canBeLocked;
+    }  
+
+    public char setName() {
+        return this.name;
+    }
+
     // public WhatComesOut nameOfFunction(input) {
 
     public void numberOfLocks() {
@@ -40,6 +47,7 @@ public class Door {
         if (canBeLocked = true);
             System.out.println("The door can be locked. ");
     }
+
 
     public void shape() {
         shape = "square";
