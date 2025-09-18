@@ -49,7 +49,10 @@ public class Rectangle {
         //     return true;
         // } else {
         //     return false;
-        return length == two.length && width == two.width && area == two.area;
+        if (length == two.length && width == two.width) {
+            return true;
+        } else {
+            return false;
         }
     }
-
+}
