@@ -14,8 +14,10 @@ public class Student {
         this.id = generateId();
     }
 
-    public String generateID() {
-        return(int)((Math.random()*880)+ 100)+"-"+(int)(Math.random()* 10000);
+    public String generateId() {
+        return (int)(Math.random() * 9 + 1) + (int)(Math.random() * 9 + 1) +
+        (int)(Math.random() * 9 + 1) + "-" + (int)(Math.random() * 10) +
+        (int)(Math.random() * 10) + (int)(Math.random() * 10) + (int)(Math.random() * 10);
     }
     
     public String getName() {
@@ -38,8 +40,8 @@ public class Student {
         return id;
     }
 
-    public void setId() {
-        id = id1;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String toString() {
