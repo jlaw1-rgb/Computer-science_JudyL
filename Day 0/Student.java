@@ -14,6 +14,10 @@ public class Student {
         this.id = generateId();
     }
 
+    public String generateID() {
+        return(int)((Math.random()*880)+ 100)+"-"+(int)(Math.random()* 10000);
+    }
+    
     public String getName() {
         return name;
     }
@@ -36,10 +40,6 @@ public class Student {
 
     public void setId() {
         id = id1;
-    }
-
-    public String generateID(String name, int grade) {
-        return(int)((Math.random()*880)+ 100)+"-"+(int)(Math.random()* 10000);
     }
 
     public String toString() {
