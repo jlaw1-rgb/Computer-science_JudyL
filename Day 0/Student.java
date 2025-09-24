@@ -51,7 +51,7 @@ public class Student {
     }
 
     public boolean equal(Student other) {
-        if (this.name.equals(other.name) && this.id.equals(other.id) && this.grade == other.grade) {
+        if (name.equals(other.name) && id.equals(other.id) && grade == other.grade) {
             return true;
         } else {
             return false;

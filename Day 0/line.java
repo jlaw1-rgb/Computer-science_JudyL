@@ -1,44 +1,44 @@
 public class Line {
-    private int a;
-    private int b;
-    private int c;
+    private double a;
+    private double b;
+    private double c;
 
-    public Line(int a, int b, int c) { 
+    public Line(double a, double b, double c) { 
         this.a = a;
         this.b = b;
         this.c = c;
     }
 
-    public int getA() {
+    public double getA() {
         return a;
     }
 
-    public int getB() {
+    public double getB() {
         return b;
     }
 
-    public int getC() {
+    public double getC() {
         return c;
     }
 
-    public void setA(int a) {
+    public void setA(double a) {
         this.a = a;
     }
 
-    public void setB(int b) {
+    public void setB(double b) {
         this.b = b;
     }
 
-    public void setC(int c) {
+    public void setC(double c) {
         this.c = c;
     }
 
     public double calculateSlope() {
-        double slope = -a/b;
+        double slope = - (a / b);
         return slope;
     }
 
-    public boolean isCoordinateOnLine(int x, int y) {
+    public boolean isCoordinateOnLine(double x, double y) {
         if (a * x + b * y + c == 0) {
             return true;
         } else {
