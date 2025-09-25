@@ -50,8 +50,8 @@ public class Student {
             + "th grade student. Their id is " + id + ".";
     }
 
-    public boolean equal(Student other) {
-        if (name.equals(other.name) && id.equals(other.id) && grade == other.grade) {
+    public boolean equals(Student other) {
+        if (name.equals(other.name) && id.equals(other.id) && (grade == other.grade)) {
             return true;
         } else {
             return false;

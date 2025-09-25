@@ -9,6 +9,6 @@ public class StudentTester {
         System.out.println(b.toString());
         System.out.println(d.toString());
         System.out.println(c.equals(d));
-        System.out.println(a.equal(b));
+        System.out.println(a.equals(b));
     }
 }
