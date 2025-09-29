@@ -42,7 +42,7 @@ public class Rectangle {
         this.width = width;
     }
 
-    public boolean equal(Rectangle two) {
+    public boolean equals(Rectangle two) {
         // if (this.length == two.length && this.width == two.width) {
         //     return true;
         // } else if (this.length == two.width && this.width == two.length) {

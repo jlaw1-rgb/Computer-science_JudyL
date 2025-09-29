@@ -6,7 +6,7 @@ public class RectangleTester {
         Rectangle a = new Rectangle(5, 10);
         Rectangle c = new Rectangle(5, 10);
 
-        if (a.equal(c)) {
+        if (a.equals(c)) {
             System.out.println("They are equal.");
         }   else {
             System.out.println("They are not equal.");
