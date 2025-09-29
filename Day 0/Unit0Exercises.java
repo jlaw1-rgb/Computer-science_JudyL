@@ -26,15 +26,15 @@ public class Unit0Exercises {
         if (weekday == false || vacation == true) {
             return true;
         } else {
-        return false;
+            return false;
         }
     }
 
     public int diff21(int n) {
-        if (n >= 0) {
-            return -(n - 21);
+        if (n <= 21) {
+            return - (n - 21);
         } else {
-            return 2 * (n-21);
+            return 2 * (n - 21);
         }
     }
 
