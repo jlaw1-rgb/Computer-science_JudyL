@@ -25,7 +25,7 @@ public class Cat { //deleted s in "cats", lowercased P in "public"
 	}
 
 	public boolean feed() {
-		this.isHungry = false;
+		return this.isHungry = false; //added "return"
 	}
 
 	public boolean equals(Cat other) {
@@ -34,6 +34,6 @@ public class Cat { //deleted s in "cats", lowercased P in "public"
 	}
 
 	public String toString() {
-		System.out.println(name + " is of breed " + breed + " and has " + livesRemaining + " lives remaining.");
+		return name + " is of breed " + breed + " and has " + livesRemaining + " lives remaining."; //changed sysout to "return"
 	}
 }
