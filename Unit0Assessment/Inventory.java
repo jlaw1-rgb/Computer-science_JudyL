@@ -34,7 +34,7 @@ public class Inventory {
     }
 
     public String toString() {
-        return "Item: " + itemName + ", Quantity: " + quantity + ", Price: " + price;
+        return "Item: " + itemName + ", Quantity: " + quantity + ", Price: $" + price;
     }
 
     public boolean equals(Inventory other) {
@@ -46,6 +46,6 @@ public class Inventory {
         }
 
     public void raisePrice (double percentage) {
-        price = (price * percentage) * 0.01;
+        this.price = (price * percentage) * 0.01;
     }
     }
