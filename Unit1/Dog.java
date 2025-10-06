@@ -7,8 +7,6 @@ public class Dog {
     private String dogTag;
     private boolean stillInFacility;
 
-}
-
     public Dog(String name, String ownerName, int age, int dogId) {
         this.name = name;
         this.ownerName = ownerName;
@@ -85,11 +83,23 @@ public class Dog {
         this.stillInFacility = stillInFacility;
     }
 
+    public String generateDogTag() {
+        return "" + (int) ((Math.random() + 99) * 10);
+    }
+
+    public char generateDogChar(String dogId) {
+        return dogId + 
+    }
+
     public String toString(boolean stillInFacility) {
         if (stillInFacility = true) {
             return "" + name + "is a good dog. They are " + age + " years old and belongs to "
-                + ownerName + " . They are currently " ;
+                + ownerName + " . They are currently not in our facility. For employee use only: DogTag is " + dogTag;
+        } else {
+            return "" + name + "is a good dog. They are " + age + " years old and belongs to "
+                + ownerName + " . They are currently in our facility. For employee use only: DogTag is " + dogTag;
         }
         
     }
 
+}
