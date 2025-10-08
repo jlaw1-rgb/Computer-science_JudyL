@@ -13,7 +13,7 @@ public class Dog {
         this.age = age;
         this.dogId = dogId;
         this.dogChar = generateDogChar(this.dogId);
-        this.dogTag = generateDogTag();
+        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true;
     }
 
@@ -23,7 +23,7 @@ public class Dog {
         this.age = 5;
         this.dogId = 263;
         this.dogChar = generateDogChar(this.dogId);
-        this.dogTag = generateDogTag();
+        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true;
     }
 
@@ -94,15 +94,6 @@ public class Dog {
         
     }
 
-    public String generateDogTag() {
-        return "" + dogId + dogChar;
-    }
-
-    public static char generateDogChar(int dogId) {
-        int sum = (dogId % 10 + (dogId / 10) % 10 + ((dogId / 10) % 10) / 10) % 10;
-        return (char) ('F' + sum);
-    }
-
     public boolean equals(Dog other) {
         if (this.name.equals(other.name) && this.ownerName.equals(other.ownerName)
             && this.age == other.age && this.dogId == other.dogId && this.dogChar == other.dogChar
@@ -112,6 +103,16 @@ public class Dog {
             return false;
         }
     }
+
+}
+
+public class PawesomeUtils {
+
+    public static char generateDogChar(int dogId) {
+        int sum = (dogId % 10 + (dogId / 10) % 10 + ((dogId / 10) % 10) / 10) % 10;
+        return (char) ('F' + sum);
+    }
+
 
     public static String pickup(Dog dog, String personName) {
         if (personName.equals(dog.ownerName)) {
@@ -126,5 +127,18 @@ public class Dog {
         dog.stillInFacility = true;
         dog.ownerName = personName;
     }
+
+    public static String generateDogTag(int dogId, int dogChar) {
+        return "" + this.dogId + this.dogChar;
+    }
+
+    public stactic int validateDogId(int dogId) {
+        if (this.dogid >= 100 && this.dogId <= 900) {
+            return this.dogId;
+        } else {
+            return Math.random();
+        }
+    }
+
 
 }
