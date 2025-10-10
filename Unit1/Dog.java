@@ -11,7 +11,7 @@ public class Dog {
         this.name = name;
         this.ownerName = ownerName;
         this.age = age;
-        this.dogId = dogId;
+        this.dogId = validateDogId(this.dogId);
         this.dogChar = generateDogChar(this.dogId);
         this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true;
@@ -51,7 +51,7 @@ public class Dog {
         return ownerName;
     }
 
-    public boolean isStillInFacility() {
+    public boolean getStillInFacility() {
         return stillInFacility;
     }
 
@@ -72,7 +72,7 @@ public class Dog {
     }
 
     public void setDogId(int dogId) {
-        this.dogId = dogId;
+        this.dogId = validateDogId(this.dogId);
     }
 
     public void setDogTag(String dogTag) {
@@ -99,53 +99,6 @@ public class Dog {
             && this.age == other.age && this.dogId == other.dogId && this.dogChar == other.dogChar
             && this.dogTag.equals(other.dogTag) && this.stillInFacility == other.stillInFacility) {
             return true;
-        } else {
-            return false;
-        }
-    }
-
-}
-
-public class PawesomeUtils {
-
-    public static char generateDogChar(int dogId) {
-        int sum = (dogId % 10 + (dogId / 10) % 10 + ((dogId / 10) % 10) / 10) % 10;
-        return (char) ('F' + sum);
-    }
-
-
-    public static String pickup(Dog dog, String personName) {
-        if (personName.equals(dog.ownerName)) {
-            dog.stillInFacility = false;
-            return "" + dog.name + " has been picked up by their owner " + dog.ownerName + ".";
-        } else {
-            return "" + dog.name + " can't leave! Safeft first. ";
-        }
-    }
-
-    public static void checkIn(Dog dog, String personName) {
-        dog.stillInFacility = true;
-        dog.ownerName = personName;
-    }
-
-    public static String generateDogTag(int dogId, int dogChar) {
-        return "" + this.dogId + this.dogChar;
-    }
-
-    public stactic int validateDogId(int dogId) {
-        if (this.dogid >= 100 && this.dogId <= 900) {
-            return this.dogId;
-        } else {
-            return (int) (Math.random() + 100) * 10;
-        }
-    }
-
-    public static boolean validateDogTag(Dog dog) {
-        int newDogId = newDogId.validateDogId(dog.getDogId());
-        char newDogChar = dog.generateDogChar(int newDogId);
-        String newDogTag = "" + newDogId + newDogChar;
-        if (newDogTag.equals(dog.getDogId())) {
-            return true; 
         } else {
             return false;
         }
