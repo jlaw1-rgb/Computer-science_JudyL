@@ -136,9 +136,19 @@ public class PawesomeUtils {
         if (this.dogid >= 100 && this.dogId <= 900) {
             return this.dogId;
         } else {
-            return Math.random();
+            return (int) (Math.random() + 100) * 10;
         }
     }
 
+    public static boolean validateDogTag(Dog dog) {
+        int newDogId = newDogId.validateDogId(dog.getDogId());
+        char newDogChar = dog.generateDogChar(int newDogId);
+        String newDogTag = "" + newDogId + newDogChar;
+        if (newDogTag.equals(dog.getDogId())) {
+            return true; 
+        } else {
+            return false;
+        }
+    }
 
 }
