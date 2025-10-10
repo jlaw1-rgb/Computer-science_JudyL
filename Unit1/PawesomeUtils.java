@@ -7,7 +7,7 @@ public class PawesomeUtils {
 
     public static String pickup(Dog dog, String personName) {
         if (personName.equals(dog.getOwnerName())) {
-            dog.getStillInFacility() = false;
+            dog.setStillInFacility(false);
             return "" + dog.getName() + " has been picked up by their owner " + dog.getOwnerName() + ".";
         } else {
             return "" + dog.getName() + " can't leave! Safeft first. ";
@@ -15,9 +15,9 @@ public class PawesomeUtils {
     }
 
     public static void checkIn(Dog dog, String personName) {
-        dog.stillInFacility = true;
-        dog.ownerName = dog.personName;
-        if (dog.validateDogId(dog.getDogId()) == true) {
+        dog.setStillInFacility(true);
+        personName = dog.getOwnerName();
+        if (validateDogId(DogId()) == true) {                           ////??
             System.out.println("Check in was successful! ");
         } else {
             System.out.println("Counterfeit dog! Entry denied.");
@@ -29,7 +29,7 @@ public class PawesomeUtils {
     }
 
     public static int validateDogId(int dogId) {
-        if (dogid >= 100 && dogId <= 900) {
+        if (dogId >= 100 && dogId <= 900) {
             return dogId;
         } else {
             return (int) (Math.random() + 100) * 10;
@@ -37,8 +37,8 @@ public class PawesomeUtils {
     }
 
     public static boolean validateDogTag(Dog dog) {
-        int newDogId = newDogId.validateDogId(dog.getDogId());
-        char newDogChar = dog.generateDogChar(newDogId); 
+        int newDogId = validateDogId(dog.getDogId());
+        char newDogChar = generateDogChar(newDogId); 
         String newDogTag = "" + newDogId + newDogChar;
         if (newDogTag.equals(dog.getDogId())) {
             return true; 
@@ -48,12 +48,12 @@ public class PawesomeUtils {
     }
 
     public static int convertAgeToDogAge(Dog dog) {
-        age = dog.getAge();
+        int age = dog.getAge();
         if (age == 1) {
             return 15;
         } else if (age == 2) {
             return 24;
-        } else if (age > 2) {
+        } else {
             return 24 + (age - 2) * 5;
         }
     }
@@ -63,8 +63,9 @@ public class PawesomeUtils {
             return 1;
         } else if (humanYears <= 24 && humanYears > 15) {
             return 2;
-        } else if (humanYears > 24) {
-            return (int) ((humanYears - 24) / 5 + 2);
+        } else {
+            return ((humanYears - 24) / 5 + 2);
         }
+
     }
 }
