@@ -6,11 +6,11 @@ public class PawesomeUtils {
     }
 
     public static String pickup(Dog dog, String personName) {
-        if (personName.equals(dog.ownerName)) {
-            dog.stillInFacility = false;
-            return "" + dog.name + " has been picked up by their owner " + dog.ownerName + ".";
+        if (personName.equals(dog.getOwnerName())) {
+            dog.getStillInFacility() = false;
+            return "" + dog.getName() + " has been picked up by their owner " + dog.getOwnerName() + ".";
         } else {
-            return "" + dog.name + " can't leave! Safeft first. ";
+            return "" + dog.getName() + " can't leave! Safeft first. ";
         }
     }
 
@@ -25,12 +25,12 @@ public class PawesomeUtils {
     }
 
     public static String generateDogTag(int dogId, int dogChar) {
-        return "" + this.dogId + this.dogChar;
+        return "" + dogId + dogChar;
     }
 
     public static int validateDogId(int dogId) {
-        if (this.dogid >= 100 && this.dogId <= 900) {
-            return this.dogId;
+        if (dogid >= 100 && dogId <= 900) {
+            return dogId;
         } else {
             return (int) (Math.random() + 100) * 10;
         }
@@ -38,7 +38,7 @@ public class PawesomeUtils {
 
     public static boolean validateDogTag(Dog dog) {
         int newDogId = newDogId.validateDogId(dog.getDogId());
-        char newDogChar = dog.generateDogChar(int newDogId);
+        char newDogChar = dog.generateDogChar(newDogId); 
         String newDogTag = "" + newDogId + newDogChar;
         if (newDogTag.equals(dog.getDogId())) {
             return true; 
@@ -48,7 +48,7 @@ public class PawesomeUtils {
     }
 
     public static int convertAgeToDogAge(Dog dog) {
-        age = dog.getAge()
+        age = dog.getAge();
         if (age == 1) {
             return 15;
         } else if (age == 2) {
@@ -61,10 +61,10 @@ public class PawesomeUtils {
     public static int convertAgeToDogYears(int humanYears) {
         if (humanYears <= 15) {
             return 1;
-        } else if (15 < humanYears <= 24) {
+        } else if (humanYears <= 24 && humanYears > 15) {
             return 2;
         } else if (humanYears > 24) {
-            return (humanYears - 24) / 5 + 2;
+            return (int) ((humanYears - 24) / 5 + 2);
         }
     }
 }
