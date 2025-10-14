@@ -1,7 +1,7 @@
 public class PawesomeUtils {
 
     public static char generateDogChar(int dogId) {
-        int sum = (dogId % 10 + (dogId / 10) % 10 + ((dogId / 10) % 10) / 10) % 10;
+        int sum = (dogId % 10 + (int) (dogId / 10) % 10 + ((int) (dogId / 10) % 10) / 10) % 10;
         return (char) ('F' + sum);
     }
 
@@ -17,7 +17,7 @@ public class PawesomeUtils {
     public static void checkIn(Dog dog, String personName) {
         dog.setStillInFacility(true);
         personName = dog.getOwnerName();
-        if (validateDogId(DogId()) == true) {                           ////??
+        if (dog.getDogId() >= 999 || dog.getDogId() <= 100) {
             System.out.println("Check in was successful! ");
         } else {
             System.out.println("Counterfeit dog! Entry denied.");
