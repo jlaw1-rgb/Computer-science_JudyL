@@ -4,11 +4,16 @@ public class NameOps {
         return "" + method + "(\"" + name + "\"): ";
     }
 
-    public static String whoIsAwsome(String name) {
-        return "" + name + "is awsome! ";
+    public static String whoIsAwesome(String name) {
+        return "" + name + " is awsome! ";
     }
 
     public static int indexOfFirstSpace(String name) {
+        return name.indexOf(" ");
+    }
+
+    public static int indexOfSecondSpace(String name) {
+        name = name
         return 
     }
 

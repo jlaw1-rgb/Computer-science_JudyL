@@ -4,27 +4,27 @@ public class NameOpsTester {
         String name2 = "Elton John"; // two names
         String name3 = "Elvis Aaron Presley"; // three names
 
-        // testing whoIsAwesome()
-        System.out.println("== Testing whoIsAwesome() ==");
-        String method = "whoIsAwesome";
-        String test1 = NameOps.printMethodCall(method, name1) + NameOps.whoIsAwesome(name1); 
-        String test2 = NameOps.printMethodCall(method, name2) + NameOps.whoIsAwesome(name2);
-        String test3 = NameOps.printMethodCall(method, name3) + NameOps.whoIsAwesome(name3);
-        System.out.println(test1); // Cher is awesome!
-        System.out.println(test2); // Elton John is awesome!
-        System.out.println(test3); // Elvis Aaron Presley is awesome!
-        System.out.println();
-
-        // // testing indexOfFirstSpace()
-        // System.out.println("== Testing indexOfFirstSpace() ==");
-        // method = "indexOfFirstSpace";
-        // test1 = NameOps.printMethodCall(method, name1) + NameOps.indexOfFirstSpace(name1);
-        // test2 = NameOps.printMethodCall(method, name2) + NameOps.indexOfFirstSpace(name2);
-        // test3 = NameOps.printMethodCall(method, name3) + NameOps.indexOfFirstSpace(name3);
-        // System.out.println(test1); // -1
-        // System.out.println(test2); // 5
-        // System.out.println(test3); // 5
+        // // testing whoIsAwesome()
+        // System.out.println("== Testing whoIsAwesome() ==");
+        // String method = "whoIsAwesome";
+        // String test1 = NameOps.printMethodCall(method, name1) + NameOps.whoIsAwesome(name1); 
+        // String test2 = NameOps.printMethodCall(method, name2) + NameOps.whoIsAwesome(name2);
+        // String test3 = NameOps.printMethodCall(method, name3) + NameOps.whoIsAwesome(name3);
+        // System.out.println(test1); // Cher is awesome!
+        // System.out.println(test2); // Elton John is awesome!
+        // System.out.println(test3); // Elvis Aaron Presley is awesome!
         // System.out.println();
+
+        // testing indexOfFirstSpace()
+        System.out.println("== Testing indexOfFirstSpace() ==");
+        String method = "indexOfFirstSpace";
+        String test1 = NameOps.printMethodCall(method, name1) + NameOps.indexOfFirstSpace(name1);
+        String test2 = NameOps.printMethodCall(method, name2) + NameOps.indexOfFirstSpace(name2);
+        String test3 = NameOps.printMethodCall(method, name3) + NameOps.indexOfFirstSpace(name3);
+        System.out.println(test1); // -1
+        System.out.println(test2); // 5
+        System.out.println(test3); // 5
+        System.out.println();
 
         // // testing indexOfSecondSpace()
         // System.out.println("== Testing indexOfSecondSpace() ==");
