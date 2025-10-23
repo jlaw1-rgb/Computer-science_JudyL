@@ -27,11 +27,11 @@ public class NameOpsTester {
         // System.out.println();
 
         // // testing indexOfSecondSpace()
-        // System.out.println("\n\n\n== Testing indexOfSecondSpace() ==\n);
+        // System.out.println("\n\n\n== Testing indexOfSecondSpace() ==\n");
         // String method = "indexOfSecondSpace";
         // String test1 = NameOps.printMethodCall(method, name1) + NameOps.indexOfSecondSpace(name1);
         // String test2 = NameOps.printMethodCall(method, name2) + NameOps.indexOfSecondSpace(name2);
-        // Stringtest3 = NameOps.printMethodCall(method, name3) + NameOps.indexOfSecondSpace(name3);
+        // String test3 = NameOps.printMethodCall(method, name3) + NameOps.indexOfSecondSpace(name3);
         // System.out.println(test1); // -1
         // System.out.println(test2); // -1
         // System.out.println(test3); // 11
@@ -62,6 +62,7 @@ public class NameOpsTester {
         // // testing findMiddleName()
         // System.out.println("\n\n\n== Testing findMiddleName() ==\n");
         // String method = "findMiddleName";
+        // System.out.println(NameOps.findFirstName(name3)+NameOps.findLastName(name3)+NameOps.findMiddleName(name3));
         // String test1 = NameOps.printMethodCall(method, name1) + NameOps.findMiddleName(name1);
         // String test2 = NameOps.printMethodCall(method, name2) + NameOps.findMiddleName(name2);
         // String test3 = NameOps.printMethodCall(method, name3) + NameOps.findMiddleName(name3);

@@ -1,7 +1,7 @@
 public class PawesomeUtils {
 
     public static char generateDogChar(int dogId) {
-        int sum = (dogId % 10 + (int) (dogId / 10) % 10 + ((int) (dogId / 10) % 10) / 10) % 10;
+        int sum = (dogId / 100 + (int) (dogId / 10) % 10 + (int) (dogId % 10)) % 10;
         return (char) ('F' + sum);
     }
 
@@ -24,15 +24,15 @@ public class PawesomeUtils {
         }
     }
 
-    public static String generateDogTag(int dogId, int dogChar) {
+    public static String generateDogTag(int dogId, char dogChar) {
         return "" + dogId + dogChar;
     }
 
     public static int validateDogId(int dogId) {
-        if (dogId >= 100 && dogId <= 900) {
+        if (dogId >= 100 && dogId <= 999) {
             return dogId;
         } else {
-            return (int) (Math.random() + 100) * 10;
+            return (int) (Math.random() * 900 + 100);
         }
     }
 
@@ -40,7 +40,7 @@ public class PawesomeUtils {
         int newDogId = validateDogId(dog.getDogId());
         char newDogChar = generateDogChar(newDogId); 
         String newDogTag = "" + newDogId + newDogChar;
-        if (newDogTag.equals(dog.getDogId())) {
+        if (newDogTag.equals(dog.getDogTag())) {
             return true; 
         } else {
             return false;
