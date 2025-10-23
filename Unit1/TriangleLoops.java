@@ -72,33 +72,22 @@ public class TriangleLoops {
             numberOfRows = 26;
         }
         String triangle = "";
-        for () {
-            for (int i = numberOfRows; i >= 0; i = i - 1) {
-                for (int n = i; n > 0; n = n - 1) {
-                    triangle = triangle + letter;
+        for (int i = 0; i < numberOfRows; i++) {
+            for (int n = numberOfRows - i; n > 1; n--) {     //space
+                triangle = triangle + " ";
+            }
+            for (int a = 0; a <= i; a++) {
+                triangle = triangle + (char) (a + 65);       // ascending letters
+            }
+            for (int d = i; d >= 0; d++) {
+                if (d == 0) {
+                    triangle = triangle + " ";
+                } else {
+                    triangle = triangle + (char) (d + 64);  // descending letters
                 }
-                triangle = triangle + "\n";
-            }
-            for () {
-                // descending letters
-            }
-            for () {
-                // ascending letters
-            }
-        }
-        return triangle;
-    }
-
-
-    public static String reference(int numberOfRows, char letter) {
-        String triangle = "";
-        for (int i = numberOfRows; i >= 0; i = i - 1) {
-            for (int n = i; n > 0; n = n - 1) {
-                triangle = triangle + letter;
             }
             triangle = triangle + "\n";
         }
         return triangle;
     }
-
 }
