@@ -11,7 +11,7 @@ public class TriangleLoops {
     // to-do: implement createLetterTriangleUp
     public static String createLetterTriangleUp(int numberOfRows, char letter) {
         String triangle = "";
-        for (int i = 0; i <= numberOfRows; i++) {
+        for (int i = 1; i <= numberOfRows; i++) {
             for (int n = 0; n < i; n++) {
                 triangle = triangle + letter;
             }
@@ -31,7 +31,7 @@ public class TriangleLoops {
     // to-do: implement createLetterTriangleDown
     public static String createLetterTriangleDown(int numberOfRows, char letter) {
         String triangle = "";
-        for (int i = numberOfRows; i >= 0; i = i - 1) {
+        for (int i = numberOfRows; i > 0; i = i - 1) {
             for (int n = i; n > 0; n = n - 1) {
                 triangle = triangle + letter;
             }
@@ -50,7 +50,7 @@ public class TriangleLoops {
     // to-do: implement createNumbersTriangle
     public static String createNumbersTriangle(int numberOfRows) {
         String triangle = "";
-        for (int i = 0; i <= numberOfRows; i++) {
+        for (int i = 1; i <= numberOfRows; i++) {
             for (int n = 0; n < i; n++) {
                 triangle = triangle + i + " ";
             }
@@ -73,18 +73,14 @@ public class TriangleLoops {
         }
         String triangle = "";
         for (int i = 0; i < numberOfRows; i++) {
-            for (int n = numberOfRows - i; n > 1; n--) {     //space
+            for (int s = 0; s < numberOfRows - i - 1; s++) {   //space
                 triangle = triangle + " ";
             }
             for (int a = 0; a <= i; a++) {
-                triangle = triangle + (char) (a + 65);       // ascending letters
+                triangle = triangle + (char) ('A' + a);       // ascending letters
             }
-            for (int d = i; d >= 0; d++) {
-                if (d == 0) {
-                    triangle = triangle + " ";
-                } else {
-                    triangle = triangle + (char) (d + 64);  // descending letters
-                }
+            for (int d = i; d > 0; d--) {
+                triangle = triangle + (char) ('A' - 1 + d);  // descending letters
             }
             triangle = triangle + "\n";
         }

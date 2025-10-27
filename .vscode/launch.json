@@ -1,0 +1,107 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch TriangleLoopsTester",
+      "request": "launch",
+      "mainClass": "TriangleLoopsTester",
+      "cwd": "${workspaceFolder}",
+      "classPaths": [
+        "${workspaceFolder}/bin"
+      ],
+      "preLaunchTask": "compile Unit 1"
+    }
+  ]
+}
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "BankTester",
+            "request": "launch",
+            "mainClass": "BankTester",
+            "projectName": "Computer-science_JudyL_2b00f855"
+        },
+        {
+            "type": "java",
+            "name": "CatTester",
+            "request": "launch",
+            "mainClass": "CatTester",
+            "projectName": "Computer-science_JudyL_2b00f855"
+        },
+        {
+            "type": "java",
+            "name": "DogTester",
+            "request": "launch",
+            "mainClass": "DogTester",
+            "projectName": "Computer-science_JudyL_2b00f855"
+        },
+        {
+            "type": "java",
+            "name": "DoorTester",
+            "request": "launch",
+            "mainClass": "DoorTester",
+            "projectName": "Computer-science_JudyL_2b00f855"
+        },
+        {
+            "type": "java",
+            "name": "InventoryTester",
+            "request": "launch",
+            "mainClass": "InventoryTester",
+            "projectName": "Computer-science_JudyL_2b00f855"
+        },
+        {
+            "type": "java",
+            "name": "LineTester",
+            "request": "launch",
+            "mainClass": "LineTester",
+            "projectName": "Computer-science_JudyL_2b00f855"
+        },
+        {
+            "type": "java",
+            "name": "NameOpsTester",
+            "request": "launch",
+            "mainClass": "NameOpsTester",
+            "projectName": "Computer-science_JudyL_2b00f855"
+        },
+        {
+            "type": "java",
+            "name": "RectangleTester",
+            "request": "launch",
+            "mainClass": "RectangleTester",
+            "projectName": "Computer-science_JudyL_2b00f855"
+        },
+        {
+            "type": "java",
+            "name": "StudentTester",
+            "request": "launch",
+            "mainClass": "StudentTester",
+            "projectName": "Computer-science_JudyL_2b00f855"
+        },
+        {
+            "type": "java",
+            "name": "TriangleLoopsTester",
+            "request": "launch",
+            "mainClass": "TriangleLoopsTester",
+            "projectName": "Computer-science_JudyL_2b00f855"
+        },
+        {
+            "type": "java",
+            "name": "Unit0Exercises",
+            "request": "launch",
+            "mainClass": "Unit0Exercises",
+            "projectName": "Computer-science_JudyL_2b00f855"
+        }
+    ]
+}

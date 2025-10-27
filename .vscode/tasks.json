@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "compile Unit 1",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "mkdir -p bin && javac -d bin \"Unit 1\"/*.java"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$javac"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    }
+  ]
+}

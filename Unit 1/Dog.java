@@ -72,7 +72,10 @@ public class Dog {
     }
 
     public void setDogId(int dogId) {
-        this.dogId = PawesomeUtils.validateDogId(this.dogId);
+        this.dogId = PawesomeUtils.validateDogId(dogId);
+        this.dogChar = PawesomeUtils.generateDogChar(this.dogId);
+        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
+
     }
 
     public void setDogTag(String dogTag) {
@@ -84,7 +87,7 @@ public class Dog {
     }
 
     public String toString(boolean stillInFacility) {
-        if (stillInFacility = true) {
+        if (stillInFacility == true) {
             return "" + name + "is a good dog. They are " + age + " years old and belongs to "
                 + ownerName + " . They are currently not in our facility. For employee use only: DogTag is " + dogTag;
         } else {

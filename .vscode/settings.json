@@ -1,3 +1,7 @@
 {
+  "java.project.sourcePaths": ["Unit 1"],
+  "java.project.outputPath": "bin"
+}
+{
     "java.debug.settings.onBuildFailureProceed": true
 }
