@@ -11,7 +11,7 @@ public class Dog {
         this.name = name;
         this.ownerName = ownerName;
         this.age = age;
-        this.dogId = PawesomeUtils.validateDogId(this.dogId);
+        this.dogId = PawesomeUtils.validateDogId(dogId);
         this.dogChar = PawesomeUtils.generateDogChar(this.dogId);
         this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
         this.stillInFacility = true;
