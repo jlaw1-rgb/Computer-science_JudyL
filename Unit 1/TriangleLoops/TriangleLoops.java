@@ -1,5 +1,4 @@
 public class TriangleLoops {
-
     /*
      * The method returns a String by creating rows of letters. Each row prints a
      * number of letters equal to the row number. The total number of rows printed
