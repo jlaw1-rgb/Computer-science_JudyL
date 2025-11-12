@@ -11,15 +11,22 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
+
     public String getChoice() {
         return choice;
     }
+
     public void setChoice(String choice) {
-        this.choice = choice; //TODO - update
+        choice = choice.toLowerCase();
+        if (RPSGame.validateChoice(choice) == true) {
+            this.choice = choice;
+        } else {
+            this.choice = RPSGame.generateRandomChoice();
+        }
     }
 
     public String toString() {
-        return "" + name + " chose " + choice;
+        return "" + name + " chose " + choice + ".";
     }
 
 }
