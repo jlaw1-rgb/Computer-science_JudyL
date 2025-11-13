@@ -9,11 +9,14 @@ public class ArrayOps {
      * @return The constructed string representation of the array.
      */
     public static String printStringArray(String[] array) {
-        String contents = "[";
-        for (int i = 0; i < array.length; i++) {
-            contents = contents + i + ", ";
+        if (array == null || array.length == 0) {
+            return "[]";
         }
-        System.out.println(contents);
+        String contents = "[" + array[0];
+        for (int i = 1; i < array.length; i++) {
+            contents = contents + ", " + array[i];
+        }
+        System.out.println(contents + "]");
         return contents + "]";
     }
 
@@ -28,11 +31,11 @@ public class ArrayOps {
      */
 
     public static String printIntegerArray(int[] array) {
-        String intContents = "[";
-        for (int i = 0; i < array.length; i++) {
-            intContents = intContents + i + ", ";
+        String intContents = "[" + array[0];
+        for (int i = 1; i < array.length; i++) {
+            intContents = intContents + ", " + array[i];
         }
-        System.out.println(intContents);
+        System.out.println(intContents + "]");
         return intContents + "]";
     }
 
@@ -69,8 +72,8 @@ public class ArrayOps {
         for (int i = 0; i < array.length; i++) {
             if (array[i] != null) {
                 if (array[i].length() > longest.length()) {
-                longest = array[i];
-            }
+                    longest = array[i];
+                }
             }
         }
         return longest;
@@ -85,14 +88,19 @@ public class ArrayOps {
      * @return The average length of all the Strings in the array.
      */
     public static double averageStringLength(String[] array) {
-        int totalLength = array[0].length();
+        int totalLength = 0;
+        int number = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] != null) {
                 totalLength = totalLength + array[i].length();
+                number = number + 1;
             }
         }
-        double AverageLength = (double) totalLength / array.length;
-        return AverageLength;
+        if (number == 0) {
+            return 0.0;
+        }
+        double averageLength = (double) totalLength / number;
+        return averageLength;
     }
 
 
@@ -113,16 +121,16 @@ public class ArrayOps {
         if (input == null) {
             return new int[0];
         }
+        input = input.toLowerCase();
         int [] alphabet = new int[26];
         for (int i = 0; i < input.length(); i++) {
             char letter = input.charAt(i);
-            alphabet[i] = alphabet[i] + (int) letter;
+            if (97 <= (int) letter && (int) letter <= 122) {
+                alphabet[(int) letter - 97] = alphabet[(int) letter - 97] + 1;
+            }
         }
         return alphabet;
     }
-
-
-
 
 
     /**
@@ -136,8 +144,13 @@ public class ArrayOps {
      * @return The updated array
      */
     public static int[] removeIntAndScoot(int[] array, int index) {
-        return new int[0];
+        for (int i = 0; i < (array.length - index) - 1; i++) {
+            array[index + i] = array[index + i + 1];
+        }
+        array[array.length - 1] = 0;
+        return array;
     }
+
 
     /**
      * Resizes the input array to twice its size.
@@ -147,8 +160,17 @@ public class ArrayOps {
      * @return The resized array
      */
     public static int[] resizeIntArray(int[] array) {
-        return new int[0];
+        if (array == null) {
+            return new int[0];
+        }
+        int [] newArray = new int[2 * array.length];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+            newArray[i + array.length] = 0;
+        }
+        return newArray;
     }
+
 
     /**
      * Adds the number symbol (#) and the element number (index) to the beginning of
@@ -164,8 +186,17 @@ public class ArrayOps {
      *         each String
      */
     public static String[] addNumToStringArray(String[] array) {
-        return new String[0];
+        if (array == null) {
+            return new String[0];
+        }
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null) {
+                array[i] = "#" + i + " " + array[i];
+            }
+        }
+        return array;
     }
+
 
     /**
      * Reverses the order of the elements in the given integer array.
@@ -175,7 +206,13 @@ public class ArrayOps {
      * @return The reversed array
      */
     public static int[] reverseIntArray(int[] array) {
-        return new int[0];
+        if (array == null) {
+            return new int[0];
+        }
+        int[] newArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[array.length - i - 1];
+        }
+        return newArray;
     }
-
 }
