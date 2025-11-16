@@ -5,7 +5,18 @@ public class Robot {
     private boolean isFacingRight;
 
     public Robot(int[] hallwayToClean, int startingPosition) {
+        for (int i = 0; i < hallwayToClean.length; i++) {
+            if (hallwayToClean[i] < 0) {
+                hallwayToClean[i] = 0;
+            }
+        }
         this.hallway = hallwayToClean;
+        if (startingPosition < 0) {
+            startingPosition = 0;
+        }
+        if (startingPosition > hallway.length - 1) {
+            startingPosition = hallway.length - 1;
+        }
         this.position = startingPosition;
         this.isFacingRight = true;
     }
@@ -15,7 +26,12 @@ public class Robot {
     }
 
     public void setHallway(int[] hallway) {
-        this.hallway = hallway;
+        for (int i = 0; i < hallway.length; i++) {
+            if (hallway[i] < 0) {
+                hallway[i] = 0;
+            }
+            this.hallway = hallway;
+        }
     }
 
     public int getPosition() {
@@ -23,6 +39,12 @@ public class Robot {
     }
 
     public void setPosition(int position) {
+        if (position < 0) {
+            position = 0;
+        }
+        if (position > hallway.length - 1) {
+            position = hallway.length - 1;
+        }
         this.position = position;
     }
 
@@ -34,7 +56,6 @@ public class Robot {
         this.isFacingRight = isFacingRight;
     }
 
-
     /*
      * Displays the current state of the robot and the hallway.
      */
@@ -44,7 +65,8 @@ public class Robot {
             display = display + hallway[i] + " ";
         }
         display = display + "\n";
-        for (int s = 0; s <= position; s++) {
+        for (int s = 0; s < position; s++) {
+            display = display + " ";
             display = display + " ";
         }
         if (isFacingRight == true) {
@@ -54,17 +76,9 @@ public class Robot {
         }
     }
 
-    /*
-     * Determines if the robot is blocked by a wall (the end of an array)
-     * 
-     * @return true if the robot is blocked by a wall, false otherwise
-     */
     public boolean isRobotBlockedByWall() {
-        if ((position == 0 && isFacingRight == false)|| (position == hallway.length && isFacingRight == true)) {
-            return true;
-        } else {
-            return false;
-        }
+        return (position == 0 && !isFacingRight)
+            || (position == hallway.length - 1 && isFacingRight);
     }
 
     /*
@@ -72,21 +86,20 @@ public class Robot {
      */
     public void move() {
         if (hallway[position] != 0) {
-            this.hallway[position] = this.hallway[position] - 1;
-            if (hallway[position] == 0) {
-                if (isRobotBlockedByWall() == true) {
-                    isFacingRight = !isFacingRight;
+            this.hallway[position] = hallway[position] - 1;
+        }
+        if (hallway[position] == 0) {
+            if (isRobotBlockedByWall() == true) {
+                this.isFacingRight = !isFacingRight;
+            } else {
+                if (isFacingRight == true) {
+                    this.position = position + 1;
                 } else {
-                    if (isFacingRight == true) {
-                        this.position = position + 1;
-                    } else {
-                        this.position = position - 1;
-                    }
+                    this.position = position - 1;
                 }
             }
         }
     }
-
 
     /**
      * This method determines if the hallway contains any items.
@@ -94,11 +107,13 @@ public class Robot {
      * @return a boolean value indicating if the hallway contains any items
      */
     public boolean hallIsClear() {
-        // to-do: implement this method
-
+        for (int i = 0; i < hallway.length; i++) {
+            if (hallway[i] != 0) {
+                return false;
+            }
+        }
         return true;
     }
-
 
     /**
      * This method displays the current state of the robot and the hallway. It then
@@ -111,8 +126,17 @@ public class Robot {
 
     public int clearHall() {
         int count = 0;
-        // to-do: implement this method
-
+        // for (count = 1; hallIsClear() == false; count++) {
+        //     move();
+        //     System.out.println("After move " + count + ": ");
+        //     displayState();
+        // }
+        while (hallIsClear() == false) {
+            move();
+            count = count + 1;
+            System.out.println("After move " + count + ": ");
+            displayState();
+        }
         return count;
     }
 }
