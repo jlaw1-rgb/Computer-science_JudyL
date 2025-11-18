@@ -81,4 +81,5 @@ public class StudentRecord {
         }
         return (double) getAverage(0, scores.length);
     }
+
 }

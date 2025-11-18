@@ -23,7 +23,6 @@ public class Course {
         this.enrolledStudents = enrolledStudents;
     }
 
-
     public String toString() {
         String list = "";
         for (int i = 0; i <= enrolledStudents.length; i++)
@@ -49,21 +48,5 @@ public class Course {
         }
         return (double) sum / enrolledStudents.length;
     }
-
-    /*
-     * Iterates through the enrolledStudents array and returns the name of the
-     * student with the best final average.
-     * 
-     * @return the name of the student with the best final average
-     */
-    // to-do: implement findBestStudent
-
-    /*
-     * Iterates through the enrolledStudents array and returns the average of the
-     * specified test number.
-     * 
-     * @return a double representing the average of the specified test number
-     */
-    // to-do: implement calculateTestAverage
 
 }
