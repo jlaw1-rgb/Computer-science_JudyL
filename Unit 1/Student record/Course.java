@@ -25,16 +25,16 @@ public class Course {
 
     public String toString() {
         String list = "";
-        for (int i = 0; i <= enrolledStudents.length; i++)
-            list = list + i + ".) " + enrolledStudents[i].toString();
-        return "== Computer Science ==\n" + list;
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            list = list + (i + 1) + ".) " + enrolledStudents[i].toString() + "\n";
+        }
+        return "== " + courseName + " ==\n" + list;
     }
 
     public String findBestStudent() {
         StudentRecord student = enrolledStudents[0];
-        double best = student.getFinalAverage();
-        for (int i = 0; i < enrolledStudents.length; i++) {
-            if (enrolledStudents[i].getFinalAverage() > best) {
+        for (int i = 1; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i].getFinalAverage() > student.getFinalAverage()) {
                 student = enrolledStudents[i];
             }
         }
@@ -43,7 +43,7 @@ public class Course {
 
     public double calculateTestAverage(int number) {
         double sum = 0;
-        for (int i = 0; i <= enrolledStudents.length; i++) {
+        for (int i = 0; i < enrolledStudents.length; i++) {
             sum = sum + enrolledStudents[i].getTestScore(number);
         }
         return (double) sum / enrolledStudents.length;

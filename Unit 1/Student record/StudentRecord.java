@@ -31,11 +31,8 @@ public class StudentRecord {
 
 
     public String convert(int [] score) {
-        if (score == null || score.length == 0) {
-            return "[]";
-        }
         String contents = "[" + scores[0];
-        for (int i = 0; i < score.length; i++) {
+        for (int i = 1; i < score.length; i++) {
             contents = contents + ", " + score[i];
         }
         System.out.println(contents + "]");
@@ -53,15 +50,15 @@ public class StudentRecord {
         for (int i = first; i <= last; i++) {
             sum = sum + scores[i];
         }
-        return (double) sum / (last - first);
+        return (double) sum / (last - first + 1);
     }
 
 
     public int getTestScore(int testNumber) {
-        if (testNumber > scores.length) {
+        if (testNumber > scores.length || testNumber < 0) {
             return -1;
         }
-        return scores[testNumber - 1];
+        return scores[testNumber];
     }
 
 
@@ -77,9 +74,9 @@ public class StudentRecord {
 
     public double getFinalAverage() {
         if (hasImproved() == true) {
-            return (double) getAverage((int) scores.length / 2, scores.length);
+            return (double) getAverage((int) (scores.length / 2), scores.length - 1);
         }
-        return (double) getAverage(0, scores.length);
+        return (double) getAverage(0, scores.length - 1);
     }
 
 }
