@@ -126,11 +126,6 @@ public class Robot {
 
     public int clearHall() {
         int count = 0;
-        // for (count = 1; hallIsClear() == false; count++) {
-        //     move();
-        //     System.out.println("After move " + count + ": ");
-        //     displayState();
-        // }
         while (hallIsClear() == false) {
             move();
             count = count + 1;
