@@ -11,8 +11,6 @@ public class StudentRecord {
         return name;
     }
 
-    // to-do: implement getTestScore
-
     public int[] getScores() {
         return scores;
     }
