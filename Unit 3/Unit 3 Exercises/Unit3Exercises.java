@@ -59,10 +59,10 @@ public class Unit3Exercises {
 
     // Intended: check whether the input string reads the same forwards and backwards.
     public static boolean isPalindrome(String str) {
-        if (str == null || str.equals("")) {
+        if (str == null || str.equals("")) {        //added if to check edge case
             return false;
         }
-        return str.equals(reverseString(str));
+        return str.equals(reverseString(str));      //rewrote using existing method
     }
 
     // Intended: sum only the even numbers in the array.
@@ -73,7 +73,7 @@ public class Unit3Exercises {
         int sum = 0;
         for (int i = 0; i <= numbers.length - 1; i++) {     //changed from < to <=
             if (numbers[i] % 2 == 0) {
-                sum += numbers[i];      // removed +1
+                sum += numbers[i];      // deleted +1
             }      // removed else case
         }
         if (sum == 0) {
@@ -81,4 +81,113 @@ public class Unit3Exercises {
         }
         return sum;
     }
+
+    public static int calculateSumOfSquares(int[] numbers) {
+        if (numbers == null) {
+            return 0;
+        }
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {  // changed from 1 to 0
+            sum += Math.pow(numbers[i], 2);
+        }
+        return sum;
+    }
+
+    public static int getNthFibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        int a = 0, b = 1, c;
+        for (int i = 2; i <= n; i++) {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+
+    public static int[] sortArrayDescending(int[] arr) { // changed from void to return int[]
+        if (arr == null) {
+            return new int[0];
+        }
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] > arr[i]) {      // change form < to >
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;     // added return statement
+    }
+
+    public static String findLongestWord(String sentence) {
+        if (sentence == null) {
+            return "Invalid sentence.";
+        }
+        String[] words = sentence.split(" ");
+        String longestWord = "";
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > longestWord.length()) { // changed from >= to >
+                longestWord = words[i];
+            }
+        }
+        return longestWord;
+    }
+
+    public static double calculateInterest(double principal, double rate, int years) {
+        if (principal < 0 || rate < 0 || years < 0 || years % 2 != 0) {
+            return 0.0;
+        }
+        for (int i = 0; i < years; i++) {
+            principal += principal * (rate / 100);
+        }
+        return principal;
+    }
+
+    public static int parsePositiveInteger(String str) {
+        int number = Integer.parseInt(str);
+        if (number < 0) {
+            return 1;
+        }
+        return number; // Method should return 1 if it's negative
+    }
+
+    public static String getArrayElement(String[] arr, int index) {
+        if (arr == null || index >= arr.length) {
+            System.out.println("Something went wrong. ");
+            return null;
+        }
+        return arr[index];
+    }
+
+    public static double calculateSquareRoot(int number) {
+        if (number < 0) {
+            System.out.println("Number has to be positive.");
+            return Double.NaN;
+        }
+        return Math.sqrt(number);
+    }
+
+    public static int sumArrayElements(int[] array) {
+        if (array == null) {
+            System.out.println("Array can not be null. ");
+            return 0;
+        }
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        return sum;
+    }
+
+    public static double calculatePower(double base, int exponent) {
+        if (base < 0) {
+            return 1.0;
+        }
+        return Math.pow(base, exponent);
+    }
+
+    // throw new IllegalArgumentException("bad code");
 }

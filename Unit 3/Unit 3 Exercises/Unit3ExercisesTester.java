@@ -1,4 +1,6 @@
 
+import java.util.Arrays;
+
 public class Unit3ExercisesTester {
 
     public static void main(String[] args) {
@@ -49,20 +51,20 @@ public class Unit3ExercisesTester {
         System.out.println("\nTESTING FIND MAX VALUE");
 
         // main case
-        int[] NumArr = {3, 2, 9, 5, 12};
-        System.out.println("Expected 12: " + Unit3Exercises.findMaxValue(NumArr));
+        int[] numArr = {3, 2, 9, 5, 12};
+        System.out.println("Expected 12: " + Unit3Exercises.findMaxValue(numArr));
 
         // edge case - negavtive + zero
-        NumArr = new int[]{-1, 2, 0, 5, -2};
-        System.out.println("Expected 5: " + Unit3Exercises.findMaxValue(NumArr));
+        numArr = new int[]{-1, 2, 0, 5, -2};
+        System.out.println("Expected 5: " + Unit3Exercises.findMaxValue(numArr));
 
         // edge case - negative only
-        NumArr = new int[]{-1, -9, -8, -3, -2};
-        System.out.println("Expected -1: " + Unit3Exercises.findMaxValue(NumArr));
+        numArr = new int[]{-1, -9, -8, -3, -2};
+        System.out.println("Expected -1: " + Unit3Exercises.findMaxValue(numArr));
 
         // edge case - null
-        NumArr = null;
-        System.out.println("Expected exception: " + Unit3Exercises.findMaxValue(NumArr));
+        numArr = null;
+        System.out.println("Expected exception: " + Unit3Exercises.findMaxValue(numArr));
 
         System.out.println("\nTESTING isPalindrome");
 
@@ -85,20 +87,127 @@ public class Unit3ExercisesTester {
         System.out.println("\nTESTING sum even numbers");
 
         // main case
-        int[] testNumArr = {3, 2, 9, 8, 4, 12};
-        System.out.println("Expected 14: " + Unit3Exercises.sumEvenNumbers(testNumArr));
+        int[] testnumArr = {3, 2, 9, 8, 4, 12};
+        System.out.println("Expected 14: " + Unit3Exercises.sumEvenNumbers(testnumArr));
 
         // edge case - negative
-        testNumArr = new int[]{-2, -3, -9, -8, -4, -10};
-        System.out.println("Expected -24: " + Unit3Exercises.sumEvenNumbers(testNumArr));
+        testnumArr = new int[]{-2, -3, -9, -8, -4, -10};
+        System.out.println("Expected -24: " + Unit3Exercises.sumEvenNumbers(testnumArr));
 
         // edge case - positive and negative
-        testNumArr = new int[]{-2, 2, 9, -8, -1, -10};
-        System.out.println("Expected -18: " + Unit3Exercises.sumEvenNumbers(testNumArr));
+        testnumArr = new int[]{-2, 2, 9, -8, -1, -10};
+        System.out.println("Expected -18: " + Unit3Exercises.sumEvenNumbers(testnumArr));
 
         // edge case - positive and negative
-        testNumArr = null;
-        System.out.println("Expected exception: " + Unit3Exercises.sumEvenNumbers(testNumArr));
+        testnumArr = null;
+        System.out.println("Expected exception: " + Unit3Exercises.sumEvenNumbers(testnumArr));
+
+        System.out.println("\nTESTING sum of squares");
+
+        // main case
+        int[] sumArr = {3, 2, 2, 1, 4, 2};
+        System.out.println("Expected 38: " + Unit3Exercises.calculateSumOfSquares(sumArr));
+
+        // edge case: null array
+        try {
+            sumArr = null;
+            System.out.println("Expected exception: " + Unit3Exercises.calculateSumOfSquares(sumArr));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println("The method threw an exception when the array was null, as intended");
+        }
+
+        System.out.println("\nTESTING get Fibonacci");
+
+        // main case
+        int num = 7;
+        System.out.println("Expected 13: " + Unit3Exercises.getNthFibonacci(num));
+
+        System.out.println("\nTESTING sort descending array");
+
+        // main case
+        int unsortArray[] = {2, 4, 5, 1, 9, 7};
+        System.out.println("Expected: [9, 7, 5, 4, 2, 1]: "
+                + Arrays.toString(Unit3Exercises.sortArrayDescending(unsortArray)));
+
+        // main - with negative
+        unsortArray = new int[]{2, -3, 5, -1, 9, 7};
+        System.out.println("Expected: [9, 7, 5, 2, -1, -3]: "
+                + Arrays.toString(Unit3Exercises.sortArrayDescending(unsortArray)));
+
+        // edge case: null array
+        try {
+            unsortArray = null;
+            System.out.println("Expected exception: " + Arrays.toString(Unit3Exercises.sortArrayDescending(unsortArray)));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println("The method threw an exception since the array was null.");
+        }
+
+        System.out.println("\nTESTING find longest word");
+
+        // main case
+        String sentence = "I like to eat oranges";
+        System.out.println("Expected oranges: " + Unit3Exercises.findLongestWord(sentence));
+        // main - same longest length
+        sentence = "Four ice cubes are here";
+        System.out.println("Expected cubes: " + Unit3Exercises.findLongestWord(sentence));
+        // edge - null
+        try {
+            sentence = null;
+            System.out.println("Expected exception: " + Unit3Exercises.findLongestWord(sentence));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println("The method threw an exception since the string was null.");
+        }
+
+        System.out.println("\nTESTING calculate interest");
+
+        // main
+        int principal = 500;
+        int rate = 2;
+        int years = 12;
+        System.out.println("Expected 634.12: "
+                + Unit3Exercises.calculateInterest(principal, rate, years));
+
+        // edge
+        try {
+            principal = -2;
+            System.out.println("Expected exception: " + Unit3Exercises.calculateInterest(principal, rate, years));
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            System.out.println("Principal value can not be negative.");
+        }
+
+        System.out.println("\nTESTING parse positive int");
+
+        try {
+            String toParse = "91.2";
+            System.out.println("Expected 91: " + Unit3Exercises.parsePositiveInteger(toParse));
+        } catch (Exception e) {
+            System.out.println("Numbers can not be negative or contain decimal. " + e.getMessage());
+        }
+
+        System.out.println("\nTESTING get array element");
+
+        try {
+            String[] arr = {"123", "This one"};
+            int index = 3;
+            System.out.println(Unit3Exercises.getArrayElement(arr, index));
+        } catch (Exception e) {
+            System.out.println("Something went wrong.");
+        }
+
+        System.out.println("\nTESTING calculate square root");
+
+        try {
+            int root = -8;
+            System.out.println(Unit3Exercises.calculateSquareRoot(root));
+        } catch (Exception e) {
+            System.out.println("Number can not be negative. ");
+        }
+
+        System.out.println("\nTESTING calculate power");
 
     }
 }
