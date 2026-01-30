@@ -2,7 +2,7 @@
 public class MatrixFunTester {
 
     public static void main(String[] args) {
-        MatrixFun mat = new MatrixFun(4, 2);
+        MatrixFun mat = new MatrixFun(2, 2);
         System.out.println(mat);
         System.out.println(mat.toString());
         int[][] mat2 = {{1, 2, 3}, {4, 5, 6}};
@@ -18,7 +18,7 @@ public class MatrixFunTester {
         System.out.println("\nAfter:\n" + mat1);
 
         System.out.println("TESTING swap:\n\nBefore:\n" + mat);
-        mat.swapRow(1, 2);
+        mat.swapRow(2, 2);
         System.out.println("\nAfter:\n" + mat);
 
     }

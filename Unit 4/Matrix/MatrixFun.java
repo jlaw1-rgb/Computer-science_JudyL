@@ -56,7 +56,7 @@ public class MatrixFun {
     }
 
     public boolean equals(MatrixFun matrixFun) {
-        return (matrix.toString()).equals(matrixFun.toString());
+        return (this.toString()).equals(matrixFun.toString());
     }
 
     public boolean equals(int[][] other) {
@@ -87,7 +87,10 @@ public class MatrixFun {
     }
 
     public void swapRow(int rowA, int rowB) {
-        if (rowA < 0 || rowB < 0 || rowA > matrix.length || rowB > matrix.length) {
+        if (rowA < 0 || rowB < 0
+                || rowA >= matrix.length || rowB >= matrix.length
+                || matrix[rowA].length > matrix[rowB].length
+                || matrix[rowB].length > matrix[rowA].length) {
             throw new IllegalArgumentException("Invalid row number. ");
         }
         int[] new1 = matrix[rowA];
