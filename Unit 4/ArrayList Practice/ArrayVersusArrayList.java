@@ -173,6 +173,5 @@ public class ArrayVersusArrayList {
         System.out.println("\tOutput: " + list);
         boolean result = (expectedList).equals(list);
         System.out.println("\tResult: " + (result ? "PASS" : "FAIL"));
-
     }
 }
