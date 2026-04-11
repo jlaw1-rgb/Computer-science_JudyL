@@ -8,18 +8,18 @@ public class Word {
     private ArrayList<String> characters;
 
     public Word(String word) {
+        originalWord = word;
         word = word.toLowerCase();
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < word.length(); i++) {
-            list.add(i, "" + word.charAt(i));
             int num = (int) word.charAt(i);
             if (num < 97 || num > 122) {
                 throw new IllegalArgumentException("Error. Word contains numbers or special characters.");
             }
+            list.add(i, "" + word.charAt(i));
         }
-        originalWord = word;
-        this.sortedWord = sortWord();
         characters = list;
+        sortedWord = sortWord();
     }
 
     public String getOriginalWord() {
@@ -34,11 +34,15 @@ public class Word {
         for (int i = 0; i < characters.size() - 1; i++) {
             int min = i;
             for (int j = i + 1; j < characters.size(); j++) {
-                if ((int) originalWord.charAt(j) < (int) originalWord.charAt(min)) {
+                char a = characters.get(j).charAt(0);
+                char b = characters.get(min).charAt(0);
+                if ((int) a < (int) b) {
                     min = j;
                 }
             }
-            swap(i, min);
+            if (min != i) {
+                swap(i, min);
+            }
         }
         String ret = "";
         for (int i = 0; i < characters.size(); i++) {
@@ -48,7 +52,7 @@ public class Word {
     }
 
     public void swap(int a, int b) {
-        String temp = characters.get(a);
+        String temp = characters.get(b);
         characters.set(b, characters.get(a));
         characters.set(a, temp);
     }

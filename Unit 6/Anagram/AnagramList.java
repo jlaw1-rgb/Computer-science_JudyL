@@ -20,6 +20,24 @@ public class AnagramList extends AbstractList {
     }
 
     public ArrayList<Word> searchAnagrams(String key) {
-
+        Word Wkey = new Word(key);
+        ArrayList<Word> set = new ArrayList<>();
+        for (Word word : wordList) {
+            if (checkAnagram(word, Wkey)) {
+                set.add(word);
+            }
+        }
+        return set;
     }
+
+    @Override
+    public Object get(int index) {
+        return wordList.get(index);
+    }
+
+    @Override
+    public int size() {
+        return wordList.size();
+    }
+
 }
