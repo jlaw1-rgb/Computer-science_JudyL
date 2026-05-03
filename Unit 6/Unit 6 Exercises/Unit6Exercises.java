@@ -114,21 +114,9 @@ public class Unit6Exercises {
         if (str.length() == 0) {
             return "";
         }
-
-        String[] arr = new String[str.length()];
-
-        for (int i = 0; i < str.length(); i++) {
-            arr[i] = "" + str.charAt(i);
-        }
-
-        String[] newArray = new String[str.length()];
-        for (int i = 0; i < str.length(); i++) {
-            newArray[i] = arr[arr.length - i - 1];
-        }
-
         String answer = "";
-        for (int i = 0; i < str.length(); i++) {
-            answer = answer + newArray[i];
+        for (int i = str.length() - 1; i >= 0; i--) {
+            answer = answer + str.charAt(i);
         }
         return answer;
     }
@@ -146,11 +134,24 @@ public class Unit6Exercises {
      * exponent.
      */
     public static int power(int base, int exponent) {
-        return 0;
+        if (exponent == 0) {
+            return 1;
+        }
+        int answer = base;
+        for (int i = 1; i < exponent; i++) {
+            answer = answer * base;
+        }
+        return answer;
     }
 
     public static int powerRecursive(int base, int exponent) {
-        return 0;
+        if (exponent == 0) {
+            return 1;
+        }
+        if (exponent == 1) {
+            return base;
+        }
+        return powerRecursive(base, exponent - 1) * base;
     }
 
     /**
@@ -158,12 +159,23 @@ public class Unit6Exercises {
      * method that checks whether a given string is a palindrome.
      */
     public static boolean isPalindrome(String str) {
+        if (str.length() == 0) {
+            return true;
+        }
+        String s = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            s = s + str.charAt(i);
+        }
+        return str.equals(s);
+        // return reverseString(str).equals(str);
 
-        return false;
     }
 
     public static boolean isPalindromeRecursive(String str) {
-        return false;
+        if (str.length() == 0) {
+            return true;
+        }
+        return reverseStringRecursive(str).equals(str);
     }
 
     /**
@@ -172,11 +184,41 @@ public class Unit6Exercises {
      * of two numbers.
      */
     public static int gcd(int a, int b) {
-        return 0;
+        if (a == 0 || b == 0) {
+            return a + b;
+        }
+        int gcd = 1;
+        int small = a;
+        int big = b;
+        if (a > b) {
+            small = b;
+            big = a;
+        }
+        for (int i = 1; i <= small; i++) {
+            if (small % i == 0 && big % i == 0) {
+                gcd = i;
+            }
+        }
+        return gcd;
     }
 
     public static int gcdRecursive(int a, int b) {
-        return 0;
+        if (a == 0 || b == 0) {
+            return a + b;
+        }
+        if (a == 1 || b == 1) {
+            return 1;
+        }
+        int small = a;
+        if (b < a) {
+            small = b;
+        }
+        for (int i = 2; i <= small; i++) {
+            if (a % i == 0 && b % i == 0) {
+                return i * gcdRecursive(a / i, b / i);
+            }
+        }
+        return 1;
     }
 
     /**
@@ -187,12 +229,22 @@ public class Unit6Exercises {
      * n (without loops or multiplication).
      */
     public static int bunnyEars(int bunnies) {
-        return 0;
-
+        if (bunnies % 2 == 0) {
+            return (int) (bunnies * 2.5);
+        } else {
+            return (int) ((bunnies - 1) * 2.5 + 2);
+        }
     }
 
     public static int bunnyEarsRecursive(int bunnies) {
-        return 0;
+        if (bunnies == 0) {
+            return 0;
+        }
+        if (bunnies % 2 == 0) {
+            return bunnyEarsRecursive(bunnies - 1) + 3;
+        } else {
+            return bunnyEarsRecursive(bunnies - 1) + 2;
+        }
     }
 
     /**
@@ -201,17 +253,38 @@ public class Unit6Exercises {
      * of a given element in a sorted array.
      */
     public static int binarySearch(int[] arr, int key) {
-
+        int low = 0;
+        int high = arr.length - 1;
+        while (high >= low) {
+            int halfway = (high + low) / 2;
+            if (arr[halfway] > key) {
+                high = halfway - 1;
+            } else if (arr[halfway] < key) {
+                low = halfway + 1;
+            } else {
+                return halfway;
+            }
+        }
         return -1; // Element not found
     }
 
     public static int binarySearchRecursiveHelper(int[] arr, int key, int low, int high) {
-        return -1;
+        int halfway = (high + low) / 2;
+        if (high < low) {
+            return -1;
+        }
+        if (arr[halfway] > key) {
+            return binarySearchRecursiveHelper(arr, key, low, halfway - 1);
+        } else if (arr[halfway] < key) {
+            return binarySearchRecursiveHelper(arr, key, halfway + 1, high);
+        } else {
+            return halfway;
+        }
     }
 
     // DO NOT EDIT! Work on the helper version above this method. This method is to be used for testing purposes only.
     public static int binarySearchRecursive(int[] arr, int key) {
-        return binarySearchRecursiveHelper(arr, key, 0, arr.length - 1); // Element not found
+        return binarySearchRecursiveHelper(arr, key, 0, arr.length - 1);
     }
 
 }

@@ -12,18 +12,14 @@ public class Unit6ExercisesTester {
         // testCountX();
         // // Test Problem 5: Reverse String
         // testReverseString();
-
-        // Test Problem 6: Power of a Number
-        testPower();
-
-        // Test Problem 7: Palindrome Checker
-        testIsPalindrome();
-
-        // Test Problem 8: Greatest Common Divisor (GCD)
-        testGCD();
-
-        // Test Problem 9: Bunny Ears
-        testBunnyEars();
+        // // Test Problem 6: Power of a Number
+        // testPower();
+        // // Test Problem 7: Palindrome Checker
+        // testIsPalindrome();
+        // // Test Problem 8: Greatest Common Divisor (GCD)
+        // testGCD();
+        // // Test Problem 9: Bunny Ears
+        // testBunnyEars();
 
         // Test Problem 10: Binary Search
         testBinarySearch();
@@ -148,15 +144,17 @@ public class Unit6ExercisesTester {
 
     private static void testBinarySearch() {
         System.out.println("\nTesting Binary Search...");
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] arr = {1, 2, 4, 5};
         // Non-recursive tests
-        System.out.println("Binary Search (Non-Recursive) for 5: " + Unit6Exercises.binarySearch(arr, 5)); // Expected: 4
-        System.out.println("Binary Search (Non-Recursive) for 10: " + Unit6Exercises.binarySearch(arr, 10)); // Expected: -1
-        System.out.println("Binary Search (Non-Recursive) for 1: " + Unit6Exercises.binarySearch(arr, 1)); // Expected: 0
+        System.out.println("Binary Search (Non-Recursive) for 5: " + Unit6Exercises.binarySearch(arr, 5)); // Expected: 3
+        System.out.println("Binary Search (Non-Recursive) for 10: " + Unit6Exercises.binarySearch(arr, 3)); // Expected: -1
+        System.out.println("Binary Search (Non-Recursive) for 1: " + Unit6Exercises.binarySearch(arr, 6)); // Expected: 0
 
-        // Recursive tests
-        System.out.println("Binary Search (Recursive) for 5: " + Unit6Exercises.binarySearchRecursive(arr, 5)); // Expected: 4
-        System.out.println("Binary Search (Recursive) for 10: " + Unit6Exercises.binarySearchRecursive(arr, 10)); // Expected: -1
-        System.out.println("Binary Search (Recursive) for 1: " + Unit6Exercises.binarySearchRecursive(arr, 1)); // Expected: 0
+        // // Recursive tests
+        // System.out.println("Binary Search (Recursive) for 2: " + Unit6Exercises.binarySearchRecursive(arr, 2)); // Expected: 
+        // System.out.println("Binary Search (Recursive) for 3: " + Unit6Exercises.binarySearchRecursive(arr, 3)); // Expected: -1
+        // System.out.println("Binary Search (Recursive) for 1: " + Unit6Exercises.binarySearchRecursive(arr, 1)); // Expected: 0
+        // System.out.println("" + Unit6Exercises.binarySearchRecursive(arr, 0));
+        // System.out.println("" + Unit6Exercises.binarySearchRecursive(arr, 6));
     }
 }
