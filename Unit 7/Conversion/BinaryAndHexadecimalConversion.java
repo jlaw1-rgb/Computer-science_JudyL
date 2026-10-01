@@ -55,7 +55,8 @@ public class BinaryAndHexadecimalConversion {
         if (hex.length() <= 1) {
             return hexHelp(hex);
         }
-        return hexHelp("" + hex.charAt(0)) + convertHexadecimalToBinary(hex.substring(1, hex.length()));
+        String hex1 = hexHelp("" + hex.charAt(0));
+        return hex1 + convertHexadecimalToBinary(hex.substring(1, hex.length()));
     }
 
     // Given a String of a binary representation of an int,
@@ -76,18 +77,27 @@ public class BinaryAndHexadecimalConversion {
     // If the String starts with neither, then convert the rest of the String as if
     // it were decimal.
     public static int convertStringToInt(String numString) {
-        if (numString.substring(0, 2).equals("0b")) {
-            return convertBinaryToInt(numString);
-        } else if (numString.substring(0, 2).equals("0x")) {
-            return convertHexadecimalToInt(numString);
-        } else {
-            for (int i = 0; i < numString.length(); i++) {
-                if ((int) numString.charAt(i) < 48 || (int) numString.charAt(i) > 57) {
-                    throw new IllegalArgumentException();
-                }
-            }
+        numString = numString.toLowerCase();
+        if (isTenBase(numString)) {
             return Integer.parseInt(numString);
+        } else if (numString.length() < 3) {
+            throw new IllegalArgumentException();
+        } else if (numString.substring(0, 2).equals("0b")) {
+            return convertBinaryToInt(numString.substring(2));
+        } else if (numString.substring(0, 2).equals("0x")) {
+            return convertHexadecimalToInt(numString.substring(2));
+        } else {
+            throw new IllegalArgumentException();
         }
+    }
+
+    public static boolean isTenBase(String string) {
+        for (int i = 0; i < string.length(); i++) {
+            if ((int) string.charAt(i) < 48 || (int) string.charAt(i) > 57) {
+                return false;
+            }
+        }
+        return true;
     }
 
     //
